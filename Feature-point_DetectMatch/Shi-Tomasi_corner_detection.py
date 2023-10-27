@@ -1,7 +1,7 @@
 import numpy as np
 import cv2 as cv
 
-img = cv.imread('chessboard.png')
+img = cv.imread('')
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
 corners = cv.goodFeaturesToTrack(gray,25,0.01,10)

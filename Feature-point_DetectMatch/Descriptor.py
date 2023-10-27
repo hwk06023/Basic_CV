@@ -1,7 +1,7 @@
 import numpy as np
 import cv2 as cv
 
-img = cv.imread('home.jpg')
+img = cv.imread('')
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
 # SIFT, SURF, ORB, BRISK, BRIEF, FREAK ..

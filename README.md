@@ -56,7 +56,7 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 
 ## Basic process
 
-### point processing for brightness and contrast
+### Point processing for brightness and contrast
 
 ### Histogram
 
@@ -68,7 +68,7 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 
 ## Filltering
 
-### mean filter (blurring)
+### Mean filter (blurring)
 
 ### Gaussian filter (blurring)
 
@@ -206,11 +206,15 @@ Gaussian Mixture-based Background/Foreground Segmentation Algorithm <br/>
 
 ### CamShift   
 
-### OpticalFlow
 
 ### Lucas-Kanade
 
+
+### OpticalFlow
+
 ### Dense Optical Flow
+
+
 
 
 
@@ -220,7 +224,7 @@ Gaussian Mixture-based Background/Foreground Segmentation Algorithm <br/>
 
 ### Otsu's Binarization
 
-### Adaptive Thresholding
+### Adaptive thresholding
 
 ### Watershed transform
 
