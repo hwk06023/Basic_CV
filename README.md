@@ -58,6 +58,7 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 
 ### Point processing for brightness and contrast
 
+
 ### Histogram
 
 
@@ -65,26 +66,6 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 
 
 <br/><br/><br/><br/>
-
-## Filltering
-
-### Mean filter (blurring)
-
-### Gaussian filter (blurring)
-
-### Unsharp masking (sharpening)
-
-### Laplacian filter (sharpening)
-
-### Median filter (noise removal)
-
-### Bilateral filter (noise removal)
-
-### Image Pyramids
-
-
-<br/><br/><br/><br/>
-
 
 ## Geometric transform
 
@@ -97,6 +78,36 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 ### Perspective transform
 
 ### Remapping
+
+
+
+<br/><br/><br/><br/>
+
+
+## Filltering
+
+### Mean filter (blurring)
+
+
+
+### Gaussian filter (blurring)
+
+### Unsharp masking (sharpening)
+
+### Laplacian filter (sharpening)
+
+### Median filter (noise removal)
+
+### Bilateral filter (noise removal)
+
+
+
+### Image Pyramids
+
+Useful for image blending, image resizing, image compression, image reconstruction
+
+[opencv docs](https://docs.opencv.org/3.4/dc/dff/tutorial_py_pyramids.html)
+
 
 
 <br/><br/><br/><br/>
@@ -158,11 +169,19 @@ cv2.HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRad
 
 ### GrabCut
 
+
+
 ### Moments
+
+
 
 ### Template matching
 
+
+
 ### Cascade classifier
+
+
 
 ### HOG (Histogram of Oriented Gradients)
 
@@ -183,6 +202,70 @@ cv2.HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRad
 
 
 ### Descriptor (SIFT, SURF, ORB, BRISK, BRIEF, FREAK ..)
+
+#### SIFT (Scale-Invariant Feature Transform)
+
+1. **Scale-space extrema detection**: The first stage of computation searches over all scales and image locations. It is implemented efficiently by using a difference-of-Gaussian function to identify potential interest points that are invariant to scale and orientation.
+
+2. **Keypoint localization**: At each candidate location, a detailed model is fit to determine location and scale. Keypoints are selected based on measures of their stability.
+
+3. **Orientation assignment**: One or more orientations are assigned to each keypoint lo- cation based on local image gradient directions. All future operations are performed on image data that has been transformed relative to the assigned orientation, scale, and location for each feature, thereby providing invariance to these transformations.
+
+4. **Keypoint descriptor**: The local image gradients are measured at the selected scale in the region around each keypoint. These are transformed into a representation that allows for significant levels of local shape distortion and change in illumination.
+
+**Scale-space extrema detection**
+
+
+
+
+
+```python
+cv2.xfeatures2d.SIFT_create([, nfeatures[, nOctaveLayers[, contrastThreshold[, edgeThreshold[, sigma]]]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
+
+#### SURF (Speeded-Up Robust Features)
+
+```python
+cv2.xfeatures2d.SURF_create([, hessianThreshold[, nOctaves[, nOctaveLayers[, extended[, upright]]]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/df/dd2/tutorial_py_surf_intro.html)
+
+#### ORB (Oriented FAST and Rotated BRIEF)
+
+```python
+cv2.ORB_create([, nfeatures[, scaleFactor[, nlevels[, edgeThreshold[, firstLevel[, WTA_K[, scoreType[, patchSize[, fastThreshold]]]]]]]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d1/d89/tutorial_py_orb.html)
+
+#### BRISK (Binary Robust Invariant Scalable Keypoints)
+
+```python
+cv2.BRISK_create([, thresh[, octaves[, patternScale]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d8/d30/classcv_1_1BRISK.html)
+
+#### BRIEF (Binary Robust Independent Elementary Features)
+
+```python
+cv2.xfeatures2d.BriefDescriptorExtractor_create([, bytes[, use_orientation]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/dc/d7d/classcv_1_1xfeatures2d_1_1BriefDescriptorExtractor.html)
+
+#### FREAK (Fast Retina Keypoint)
+
+```python
+cv2.xfeatures2d.FREAK_create([, orientationNormalized[, scaleNormalized[, patternScale[, nOctaves[, selectedPairs]]]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/df/db4/classcv_1_1xfeatures2d_1_1FREAK.html)
+
+
 
 ### FLANN (Fast Library for Approximate Nearest Neighbors)
 
