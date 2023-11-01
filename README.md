@@ -87,18 +87,56 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 ## Filltering
 
 ### Mean filter (blurring)
+Mean filter is a simple filter that is usually used for blurring. <br/>
+It is also called box filter. <br/>
 
+```python
+cv2.blur(src, ksize[, dst[, anchor[, borderType]]]) -> dst
+```
 
+[opencv docs](https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#ga8c45db9afe636703801b0b2e440fce37)
 
 ### Gaussian filter (blurring)
+Gaussian filter is a filter that is usually used for blurring. <br/>
+Different from mean filter, it is more effective for blurring. <br/>
+
+```python
+cv2.GaussianBlur(src, ksize, sigmaX[, dst[, sigmaY[, borderType]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#gaabe8c836e97159a9193fb0b11ac52cf1)
 
 ### Unsharp masking (sharpening)
 
+```python
+cv2.addWeighted(src1, alpha, src2, beta, gamma[, dst[, dtype]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d5/dc4/tutorial_adding_images.html)
+
 ### Laplacian filter (sharpening)
+
+```python
+cv2.Laplacian(src, ddepth[, dst[, ksize[, scale[, delta[, borderType]]]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html)
 
 ### Median filter (noise removal)
 
+```python
+cv2.medianBlur(src, ksize[, dst]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#ga564869aa33e58769b4469101aac458f9)
+
 ### Bilateral filter (noise removal)
+
+```python
+cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace[, dst[, borderType]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d4/d86/group__imgproc__filter.html#ga9d7064d478c95d60003cf839430737ed)
 
 
 
@@ -213,22 +251,20 @@ cv2.HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRad
 
 4. **Keypoint descriptor**: The local image gradients are measured at the selected scale in the region around each keypoint. These are transformed into a representation that allows for significant levels of local shape distortion and change in illumination.
 
-**Scale-space extrema detection**
-
-
-
-
+<br/>
 
 ```python
-cv2.xfeatures2d.SIFT_create([, nfeatures[, nOctaveLayers[, contrastThreshold[, edgeThreshold[, sigma]]]]]) -> retval
+cv2.SIFT_create([, nfeatures[, nOctaveLayers[, contrastThreshold[, edgeThreshold[, sigma]]]]]) -> retval
 ```
 
-[opencv docs](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
+[opencv docs 1](https://docs.opencv.org/3.4/da/df5/tutorial_py_sift_intro.html)
+
+[opencv docs 2](https://docs.opencv.org/3.4/d7/d60/classcv_1_1SIFT.html)
 
 #### SURF (Speeded-Up Robust Features)
 
 ```python
-cv2.xfeatures2d.SURF_create([, hessianThreshold[, nOctaves[, nOctaveLayers[, extended[, upright]]]]]) -> retval
+cv2.SURF_create([, hessianThreshold[, nOctaves[, nOctaveLayers[, extended[, upright]]]]]) -> retval
 ```
 
 [opencv docs](https://docs.opencv.org/3.4/df/dd2/tutorial_py_surf_intro.html)
@@ -252,7 +288,7 @@ cv2.BRISK_create([, thresh[, octaves[, patternScale]]]) -> retval
 #### BRIEF (Binary Robust Independent Elementary Features)
 
 ```python
-cv2.xfeatures2d.BriefDescriptorExtractor_create([, bytes[, use_orientation]]) -> retval
+cv2.BriefDescriptorExtractor_create([, bytes[, use_orientation]]) -> retval
 ```
 
 [opencv docs](https://docs.opencv.org/3.4/dc/d7d/classcv_1_1xfeatures2d_1_1BriefDescriptorExtractor.html)
@@ -260,7 +296,7 @@ cv2.xfeatures2d.BriefDescriptorExtractor_create([, bytes[, use_orientation]]) ->
 #### FREAK (Fast Retina Keypoint)
 
 ```python
-cv2.xfeatures2d.FREAK_create([, orientationNormalized[, scaleNormalized[, patternScale[, nOctaves[, selectedPairs]]]]]) -> retval
+cv2.FREAK_create([, orientationNormalized[, scaleNormalized[, patternScale[, nOctaves[, selectedPairs]]]]]) -> retval
 ```
 
 [opencv docs](https://docs.opencv.org/3.4/df/db4/classcv_1_1xfeatures2d_1_1FREAK.html)
