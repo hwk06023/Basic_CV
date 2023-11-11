@@ -58,11 +58,51 @@ This Repository is for basic computer vision(Detection, Recognition, Tracking).
 
 ### Point processing for brightness and contrast
 
+```python
+cv2.add(src1, src2[, dst[, mask[, dtype]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d2/de8/group__core__array.html#ga10ac1bfb180e2cfda1701d06c24fdbd6)
+
+```python
+cv2.subtract(src1, src2[, dst[, mask[, dtype]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d2/de8/group__core__array.html#ga10ac1bfb180e2cfda1701d06c24fdbd6)
+
+```python
+cv2.multiply(src1, src2[, dst[, scale[, dtype]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d2/de8/group__core__array.html#ga10ac1bfb180e2cfda1701d06c24fdbd6)
+
+```python
+cv2.divide(src1, src2[, dst[, scale[, dtype]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d2/de8/group__core__array.html#ga10ac1bfb180e2cfda1701d06c24fdbd6)
+
+<br/>
 
 ### Histogram
 
+```python
+cv2.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]]) -> hist
+```
 
+[opencv docs](https://docs.opencv.org/3.4/d6/dc7/group__imgproc__hist.html#ga4b2b5fd75503ff9e6844cc4dcdaed35d)
 
+```python
+cv2.equalizeHist(src[, dst]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d5/daf/tutorial_py_histogram_equalization.html)
+
+```python
+cv2.compareHist(H1, H2, method) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d6/dc7/group__imgproc__hist.html#ga994f53817d621e2e4228fc646342d386)
 
 
 <br/><br/><br/><br/>
@@ -144,6 +184,17 @@ cv2.bilateralFilter(src, d, sigmaColor, sigmaSpace[, dst[, borderType]]) -> dst
 
 Useful for image blending, image resizing, image compression, image reconstruction
 
+```python
+cv2.pyrUp(src[, dst[, dstsize[, borderType]]]) -> dst
+```
+
+```python
+cv2.pyrDown(src[, dst[, dstsize[, borderType]]]) -> dst
+```
+
+
+
+
 [opencv docs](https://docs.opencv.org/3.4/dc/dff/tutorial_py_pyramids.html)
 
 
@@ -172,6 +223,19 @@ cv2.Laplacian(src, ddepth[, dst[, ksize[, scale[, delta[, borderType]]]]]) -> ds
 [opencv docs](https://docs.opencv.org/3.4/d5/db5/tutorial_laplace_operator.html)
 
 #### Canny
+
+1. Compute x and y derivatives of image
+
+2. Compute magnitude of gradient at every pixel
+
+3. Eliminate pixels that are not local maxima of gradient magnitude
+
+4. Hysteresis thresholding
+- Select the pixels such That the gradient magnitude is larger than a high threshold
+
+- Select the pixels such that the gradient magnitude is larger than a low threshold and that are connected to high threshold pixels
+
+<br/>
 
 ```python
 cv2.Canny(image, threshold1, threshold2[, edges[, apertureSize[, L2gradient]]]) -> edges
@@ -207,24 +271,47 @@ cv2.HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRad
 
 ### GrabCut
 
+```python
+cv2.grabCut(img, mask, rect, bgdModel, fgdModel, iterCount[, mode]) -> mask, bgdModel, fgdModel
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d8/d83/tutorial_py_grabcut.html)
 
 
 ### Moments
 
+```python   
+cv2.moments(array[, binaryImage]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d8/d23/classcv_1_1Moments.html)
 
 
 ### Template matching
 
+```python
+cv2.matchTemplate(image, templ, method[, result[, mask]]) -> result
+```
+
+[opencv docs](https://docs.opencv.org/3.4/df/dfb/group__imgproc__object.html#ga586ebfb0a7fb604b35a23d85391329be)
 
 
 ### Cascade classifier
 
+```python
+cv2.CascadeClassifier([filename]) -> <CascadeClassifier object>
+```
+
+[opencv docs](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html)
 
 
 ### HOG (Histogram of Oriented Gradients)
 
+```python
+cv2.HOGDescriptor([_winSize[, _blockSize[, _blockStride[, _cellSize[, _nbins[, _derivAperture[, _winSigma[, _histogramNormType[, _L2HysThreshold[, _gammaCorrection[, _nlevels[, _signedGradient]]]]]]]]]]]]) -> <HOGDescriptor object>
+```
 
-
+[opencv docs](https://docs.opencv.org/3.4/d5/d33/structcv_1_1HOGDescriptor.html)
 
 
 <br/><br/><br/><br/>
@@ -232,12 +319,23 @@ cv2.HoughCircles(image, method, dp, minDist[, circles[, param1[, param2[, minRad
 
 ## feature-point(keypoints) Detect and match
 
-
 ### Harris corner detection
 
 
+
+```python
+cv2.cornerHarris(src, blockSize, ksize, k[, dst[, borderType]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/dc/d0d/tutorial_py_features_harris.html)
+
 ### Shi-Tomasi corner detection
 
+```python
+cv2.goodFeaturesToTrack(image, maxCorners, qualityLevel, minDistance[, corners[, mask[, blockSize[, useHarrisDetector[, k]]]]]) -> corners
+```
+
+[opencv docs](https://docs.opencv.org/3.4/dd/d1a/group__imgproc__feature.html#ga1d6bb77486c8f92d79c8793ad995d541)
 
 ### Descriptor (SIFT, SURF, ORB, BRISK, BRIEF, FREAK ..)
 
@@ -293,6 +391,7 @@ cv2.BriefDescriptorExtractor_create([, bytes[, use_orientation]]) -> retval
 
 [opencv docs](https://docs.opencv.org/3.4/dc/d7d/classcv_1_1xfeatures2d_1_1BriefDescriptorExtractor.html)
 
+
 #### FREAK (Fast Retina Keypoint)
 
 ```python
@@ -301,9 +400,26 @@ cv2.FREAK_create([, orientationNormalized[, scaleNormalized[, patternScale[, nOc
 
 [opencv docs](https://docs.opencv.org/3.4/df/db4/classcv_1_1xfeatures2d_1_1FREAK.html)
 
+<br/>
+
+### Matcher(Brute-Force, FLANN)
+
+#### Brute-Force
+
+```python 
+cv2.BFMatcher([, normType[, crossCheck]]) -> <BFMatcher object>
+```
+
+[opencv docs](https://docs.opencv.org/3.4/dc/dc3/tutorial_py_matcher.html)
 
 
-### FLANN (Fast Library for Approximate Nearest Neighbors)
+#### FLANN (Fast Library for Approximate Nearest Neighbors)
+
+```python
+cv2.FlannBasedMatcher([, indexParams[, searchParams]]) -> <FlannBasedMatcher object>
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d5/d6f/tutorial_feature_flann_matcher.html)
 
 
 <br/><br/><br/><br/>
@@ -314,25 +430,70 @@ cv2.FREAK_create([, orientationNormalized[, scaleNormalized[, patternScale[, nOc
 
 ### BackgroundSubtraction
 
+#### MOG1, MOG2 (Mixture of Gaussian)
+Gaussian Mixture-based Background/Foreground Segmentation Algorithm <br/>
+
+```python
+cv.bgsegm.createBackgroundSubtractorMOG([, history[, nmixtures[, backgroundRatio[, noiseSigma]]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d1/dc5/tutorial_background_subtraction.html)
+
+```python
+cv.createBackgroundSubtractorMOG2([, history[, varThreshold[, detectShadows]]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d7/d7b/classcv_1_1BackgroundSubtractorMOG2.html)
+
+#### GMG (Gaussian Mixture-based Background/Foreground Segmentation Algorithm)
+
+```python 
+cv.bgsegm.createBackgroundSubtractorGMG([, initializationFrames[, decisionThreshold]]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d1/dc5/tutorial_background_subtraction.html)
+
+
 ### Moving Average
 
-### MOG(Mixture of Gaussian) 
-Gaussian Mixture-based Background/Foreground Segmentation Algorithm <br/>
+```python
+cv2.accumulate(src, dst[, mask]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d7/d1b/group__imgproc__misc.html#ga8c1d2e21b9e1e3dd348488990849b1ed)
+
+```python
+cv2.accumulateWeighted(src, dst, alpha[, mask]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/d7/d1b/group__imgproc__misc.html#ga8c1d2e21b9e1e3dd348488990849b1ed)
 
 
 
 ### MeanShift
 
+```python
+cv2.meanShift(probImage, window, criteria) -> retval, window
+```
+
+[opencv docs](https://docs.opencv.org/3.4/db/df8/tutorial_py_meanshift.html)
+
 ### CamShift   
+
+```python
+cv2.CamShift(probImage, window, criteria) -> retval, window
+```
+
+[opencv docs](https://docs.opencv.org/3.4/db/df8/tutorial_py_meanshift.html)
 
 
 ### Lucas-Kanade
 
 
+
 ### OpticalFlow
 
 ### Dense Optical Flow
-
 
 
 
