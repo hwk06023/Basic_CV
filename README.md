@@ -1,6 +1,7 @@
 # Basic_CV
 
-This Repository is for basic computer vision(Detection, Recognition, Tracking).
+This Repository is for basic computer vision(Detection, Recognition, Tracking). <br/>
+Honestly, This Repository is for reference when I develop something (about CV) <br/>
 
 ## OUTLINE
 
@@ -111,13 +112,45 @@ cv2.compareHist(H1, H2, method) -> retval
 
 ### Translation 
 
+```python
+cv2.warpAffine(src, M, dsize[, dst[, flags[, borderMode[, borderValue]]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga0203d9ee5fcd28d40dbc4a1ea4451983)
+
 ### Rotation
+
+```python
+cv2.getRotationMatrix2D(center, angle, scale) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga0203d9ee5fcd28d40dbc4a1ea4451983)
 
 ### Affine transform
 
+```python
+cv2.getAffineTransform(src, dst) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga8f6d378f9f8eebb5cb55cd3ae295a999)
+
+
 ### Perspective transform
 
+```python
+cv2.getPerspectiveTransform(src, dst[, solveMethod]) -> retval
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga8f6d378f9f8eebb5cb55cd3ae295a999)
+
+
 ### Remapping
+
+```python
+cv2.remap(src, map1, map2, interpolation[, dst[, borderMode[, borderValue]]]) -> dst
+```
+
+[opencv docs](https://docs.opencv.org/3.4/da/d54/group__imgproc__transform.html#ga5bb5a1fea74ea38e1a5445ca803ff121)
 
 
 
